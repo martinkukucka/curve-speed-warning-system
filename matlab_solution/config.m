@@ -1,0 +1,11 @@
+PORT = "COM15";
+predictionTime = 5;
+maximumLateralAcceleration = 5.9;
+safeLimit = 60;
+lowerRadius = 20;
+upperRadius = 600;
+visualizeTrajectory = true;
+logReceivedData = true;
+receivedDataFile = 'output.xlsx';
+saveResults = true;
+simulationResultsFile = 'results.xlsx';
