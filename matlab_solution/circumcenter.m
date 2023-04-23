@@ -1,4 +1,4 @@
-%% Function curvature calls circumcenter for every triplet of neighboring points along the curve
+%% Function circumcenter finds the radius R and the center of the circumscribed circle of a triangle in 3D space. 
 %% reference to: https://uk.mathworks.com/matlabcentral/fileexchange/69452-curvature-of-a-1d-curve-in-a-2d-or-3d-space 
 
 function [R,M,k] = circumcenter(A,B,C)
