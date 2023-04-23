@@ -82,6 +82,7 @@ while ~isempty(record)
         if (deltaTime12 ~= deltaTime23)
             if(visualizeTrajectory)
                 plot(0,0);
+                title('invalid records, retrying...');
                 set(gca, 'Color',[1 1 0]);
             end
 
