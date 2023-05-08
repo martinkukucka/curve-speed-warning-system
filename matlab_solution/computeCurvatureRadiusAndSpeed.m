@@ -1,9 +1,9 @@
 %% compute radius of curvature and recommended speed
 
-function predictedData = computeCurvatureRadiusAndSpeed(predictedData,safeLimitOfLateralAcceleration)
+function allData = computeCurvatureRadiusAndSpeed(allData,safeLimitOfLateralAcceleration)
     AlateralMax = safeLimitOfLateralAcceleration;
 
-    [pathdistance,R,~] = curvature([predictedData(:,1) predictedData(:,2)]);
-    predictedData = [predictedData pathdistance R];
-    predictedData = [predictedData sqrt(predictedData(:, 5) * AlateralMax)];
+    [pathdistance,R,~] = curvature([allData(:,1) allData(:,2)]);
+    allData = [allData pathdistance R];
+    allData = [allData sqrt(allData(:, 5) * AlateralMax)];
 end

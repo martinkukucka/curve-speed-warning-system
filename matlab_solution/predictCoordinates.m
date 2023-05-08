@@ -1,9 +1,9 @@
 %% predict coordinates
 
-function [predictedX,predictedY] = predictCoordinates(data, index, time)
-    speed = getNextSpeed(data, index);
-    nextAngle = computeCoordinateAngle(data, index);
+function [predictedX,predictedY] = predictCoordinates(data, time)
+    speed = getNextSpeed(data);
+    nextAngle = computeCoordinateAngle(data);
 
-    predictedX = predictCoordinateX(data, index, nextAngle, time, speed);
-    predictedY = predictCoordinateY(data, index, nextAngle, time, speed);
+    predictedX = predictCoordinateX(data, nextAngle, time, speed);
+    predictedY = predictCoordinateY(data, nextAngle, time, speed);
 end

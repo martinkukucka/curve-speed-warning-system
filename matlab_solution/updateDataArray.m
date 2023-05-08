@@ -17,10 +17,10 @@ function data = updateDataArray(fileName, data, record, pnmea, insertData)
         % save data to output file
         if(~isequal(fileName,'-1'))
             if isempty(outputFileInitialized)
-                writetable(table(latitude,longitude,speed,tempTime,'VariableNames',{'latitude','longitude','speed','time'}),fileName,"WriteMode",'overwritesheet',"AutoFitWidth",false);
+                writetable(table(latitude,longitude,speed,posixtime(tempTime),'VariableNames',{'latitude','longitude','speed','time'}),fileName,"WriteMode",'overwritesheet',"AutoFitWidth",false);
                 outputFileInitialized = 1;
             else
-                writetable(table(latitude,longitude,speed,tempTime,'VariableNames',{'latitude','longitude','speed','time'}),fileName,"WriteMode","append","AutoFitWidth",false);
+                writetable(table(latitude,longitude,speed,posixtime(tempTime),'VariableNames',{'latitude','longitude','speed','time'}),fileName,"WriteMode","append","AutoFitWidth",false);
             end
         end
         

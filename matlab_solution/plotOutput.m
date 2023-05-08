@@ -1,6 +1,6 @@
 %% plot output prediction trajectory with / without warning
 
-function plotOutput(allData, predictedData, timeRate)
+function plotOutput(allData, timeRate)
     % find maximum value among X,Y data points to specify size of plot figure
     xMin = min(allData(:,1)) - 5;
     xMax = max(allData(:,1)) + 5;
@@ -38,8 +38,8 @@ function plotOutput(allData, predictedData, timeRate)
     xlim([-result result])
     ylim([yMin result])
     hold on
-    plot(predictedData(:,1), predictedData(:,2), 'g-o', 'DisplayName','predicted coordinates')
-    plot(predictedData(1,1), predictedData(1,2), 'k-o', 'DisplayName','actual position')
+    plot(allData(3:end,1), allData(3:end,2), 'g-o', 'DisplayName','predicted coordinates')
+    plot(allData(3,1), allData(3,2), 'k-o', 'DisplayName','actual position')
     
     % set frequency in which are points plotted in figure
     title(sprintf('point frequency is %.1f second/s',timeRate));

@@ -34,7 +34,6 @@ pnmea = nmeaParser("MessageIDs", "RMC");
 % ylim([-10 10])
 % 
 flag = 1;
-index = 3;
 data = [];
 originalData = [];
 
@@ -44,7 +43,7 @@ record = readline(device);
 while ~isempty(record) 
     
     % fill data structure with inicialization data
-    if isempty(data) || (~isempty(data) && length(data(:,1)) ~= index)
+    if isempty(data) || (~isempty(data) && length(data(:,1)) ~= 3)
         data = updateDataArray(receivedDataFile, data, record, pnmea, 1);
     else
         if flag
@@ -57,11 +56,11 @@ while ~isempty(record)
         % convert coordinates to Cartesian coordinate system and center coordinates along Y axis
         data = centerDataArray(data);
         
-        allData = [data(index - 2,1) data(index - 2,2) data(index - 2,3); 
-            data(index - 1,1) data(index - 1,2) data(index - 1,3); 
-            data(index,1) data(index,2) data(index,3)
+        allData = [data(1,1) data(1,2) data(1,3); 
+            data(2,1) data(2,2) data(2,3); 
+            data(3,1) data(3,2) data(3,3)
             ];
-        predictedData = [data(index,1) data(index,2) data(index,3)];
+        predictedData = [data(3,1) data(3,2) data(3,3)];
 
         tempData = [
             data(length(data(:,1))-2,1) data(length(data(:,1))-2,2) data(length(data(:,1))-2,3) data(length(data(:,1))-2,4);
@@ -94,11 +93,11 @@ while ~isempty(record)
 
                 % prediction loop in which are future coordinates predicted
                 for time = 1:steps
-                    [predictedX, predictedY] = predictCoordinates(tempData, 3, timeRate);  
+                    [predictedX, predictedY] = predictCoordinates(tempData, timeRate);  
 
                     tempData = [tempData(2,1) tempData(2,2) tempData(2,3) tempData(2,4);
                         tempData(3,1) tempData(3,2) tempData(3,3) tempData(3,4);
-                        predictedX predictedY getNextSpeed(tempData, 3) 0;
+                        predictedX predictedY getNextSpeed(tempData) 0;
                         ];
 
                     allData = [allData; [tempData(3,1) tempData(3,2) tempData(3,3)]];
@@ -116,12 +115,12 @@ while ~isempty(record)
 
                 % write results to file
                 if(~isequal(simulationResultsFile,'-1'))
-                    writeResults(simulationResultsFile, allData, data(3,4));
+                    writeResults(simulationResultsFile, allData, data(3,4), warningValue);
                 end
 
                 % trajectory visualization containing referenced and predicted data
                 if(visualizeTrajectory)
-                    plotOutput(allData, predictedData, timeRate);
+                    plotOutput(allData, timeRate);
                 end
             else
                 continue

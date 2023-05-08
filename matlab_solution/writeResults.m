@@ -1,6 +1,6 @@
 %% write simulation results to file, Inf values are replaced by -1
 
-function writeResults(simulationResultsFile, allData, tempTime)
+function writeResults(simulationResultsFile, allData, tempTime, warningValue)
     persistent resultsFileInitialized;
     time = datetime(tempTime,'ConvertFrom','posixtime', 'Format', 'yyyy-MM-dd HH:mm:ss');
 
@@ -25,7 +25,7 @@ function writeResults(simulationResultsFile, allData, tempTime)
     futureCurvatureRadius(isInf) = -1;
 
     if ismember(1, allData(:,7))
-        warningState = 1;
+        warningState = warningValue;
     else
         warningState = 0;
     end

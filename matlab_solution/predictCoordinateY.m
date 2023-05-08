@@ -1,5 +1,5 @@
 %% predict Y coordinate
 
-function predictedY = predictCoordinateY(data, index, angle, time, speed)
-    predictedY = data(index,2) + speed * time * sin(angle);
+function predictedY = predictCoordinateY(data, angle, time, speed)
+    predictedY = data(3,2) + speed * time * sin(angle);
 end
