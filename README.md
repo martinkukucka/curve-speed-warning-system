@@ -13,20 +13,20 @@ Repository contains 5 folders:
 
 List of contents:
 Installation
-- [Installation guide](Installation-guide)
-- [Installation verification](Installation-verification)
-- [Addons installation](Addons-installation)
-- [MATLAB script installation](MATLAB-script-installation)
-- [NMEADataParser script installation](NMEADataParser-script-installation)
+- [Installation guide](#Installation-guide)
+- [Installation verification](#Installation-verification)
+- [Addons installation](#Addons-installation)
+- [MATLAB script installation](#MATLAB-script-installation)
+- [NMEADataParser script installation](#NMEADataParser-script-installation)
 
 User guide
-- [Online version user guide](Online-version-user-guide)
-- [Offline version user guide](Offline-version-user-guide)
-- [NMEADataParser script user guide](NMEADataParser-script-user-guide)
+- [Online version user guide](#Online-version-user-guide)
+- [Offline version user guide](#Offline-version-user-guide)
+- [NMEADataParser script user guide](#NMEADataParser-script-user-guide)
 
 Configuration
-- [Simulink configuration](Simulink-configuration)
-- [MATLAB script configuration](MATLAB-script-configuration)
+- [Simulink configuration](#Simulink-configuration)
+- [MATLAB script configuration](#MATLAB-script-configuration)
 
 ## Installation guide
 Installation Guide describes individual steps to install solution of the curve speed warning system.
