@@ -72,7 +72,7 @@ Online version of the Curve Speed Warning System is also provided for MATLAB. To
 2. In the MATLAB environment, navigate to the location of the matlab_solution folder, located in the downloaded repository, or enter the full path to matlab_solution folder in the path field shown below.  
    ![path field](./assets/installation/matlabpath.png)
    
-### NMEAParser script installation
+### NMEADataParser script installation
 1. Download and install Python from https://www.python.org/downloads/.
 
 
